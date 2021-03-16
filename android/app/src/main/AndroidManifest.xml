@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.eliasschneider.gymkirchenfeld">
    <application
-        android:label="gymkirchenfeld"
+        android:label="chilefäud"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
