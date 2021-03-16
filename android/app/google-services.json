@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "496974152939",
+    "project_id": "gymkirchenfeld-aa1cb",
+    "storage_bucket": "gymkirchenfeld-aa1cb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:496974152939:android:3b96ce29ca167a492e6aae",
+        "android_client_info": {
+          "package_name": "com.eliasschneider.gymkirchenfeld"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "496974152939-cbg0b5ab1tbav12vl12eu8o584dth3k6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD04EGuUiw7xmTBIHqz73_1aP0vtBORqew"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "496974152939-cbg0b5ab1tbav12vl12eu8o584dth3k6.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "496974152939-qmjen5d9c84gt9ugamhjopun9d8c5o85.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.eliasschneider.gymkirchenfeld"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
