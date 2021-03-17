@@ -34,16 +34,14 @@ _nameSaver() async {
 class _UserState extends State<User> {
   @override
   Widget build(BuildContext context) {
+    return CrossPScaffold(child: _body(), title: "benutzer einstellungen");
+  }
+
+  _body() {
     return Scaffold(
-        appBar: AppBar(
-          title: Text(
-            "benutzer einstellungen",
-            style: TextStyle(
-              fontWeight: FontWeight.w300,
-            ),
-          ),
-        ),
-        body: Column(
+      body: Padding(
+        padding: EdgeInsets.only(top: 60),
+        child: Column(
           children: [
             Padding(
               padding: EdgeInsets.fromLTRB(0, 70, 0, 20),
@@ -88,7 +86,10 @@ class _UserState extends State<User> {
                     });
                   });
                 },
-                child: Text("speichern", style: TextStyle(color: Colors.black),)),
+                child: Text(
+                  "speichern",
+                  style: TextStyle(color: bwColor),
+                )),
             Padding(
               padding: const EdgeInsets.only(top: 15.0),
               child: Text(
@@ -97,6 +98,8 @@ class _UserState extends State<User> {
               ),
             )
           ],
-        ));
+        ),
+      ),
+    );
   }
 }

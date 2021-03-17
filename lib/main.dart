@@ -3,11 +3,12 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'shortcuts/appbar.dart';
 import 'appOptions/settings.dart';
-
+import 'dart:io';
 import 'package:webview_flutter/webview_flutter.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'dart:async';
 import 'package:connectivity/connectivity.dart';
+import 'package:cupertino_icons/cupertino_icons.dart';
 
 void main() {
   runApp(
@@ -30,7 +31,7 @@ void main() {
     ),
   );
 }
-
+ var bwColor = Color(0xFF000000);
 WebViewController controller;
 
 class WebtoApp extends StatefulWidget {
@@ -112,7 +113,7 @@ head.appendChild(style);
     };
   }
 
-  static var bwColor = Color(0xFF000000);
+
   darkModeColorChanger() {
     var brightness = MediaQuery.of(context).platformBrightness;
     if (brightness == Brightness.dark) {
@@ -205,7 +206,7 @@ head.appendChild(style);
                     ),
                     actions: [
                       IconButton(
-                        icon: FaIcon(
+                        icon:  FaIcon(
                           FontAwesomeIcons.cog,
                           size: 17,
                         ),

@@ -1,8 +1,9 @@
 import 'package:InternGymkirchenfeld/appOptions/appinfo.dart';
+import 'package:InternGymkirchenfeld/shortcuts/appbar.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:webview_flutter/webview_flutter.dart';
-import 'darkmode.dart';
+
 import 'dart:io';
 import 'package:url_launcher/url_launcher.dart';
 import 'user.dart';
@@ -21,13 +22,22 @@ class AppOptions extends StatelessWidget {
   final BuildContext context;
 
   Widget build(BuildContext context) {
+    return CrossPScaffold(child: _body(controller: controller), title: "istellige");
+  }
+}
+
+
+class _body extends StatelessWidget {
+  const _body({
+    Key key,
+    @required this.controller,
+  }) : super(key: key);
+
+  final WebViewController controller;
+
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          "einstellungen",
-          style: TextStyle(fontWeight: FontWeight.w300),
-        ),
-      ),
       body: ListView(
         children: <Widget>[
           ListTile(
@@ -51,10 +61,10 @@ class AppOptions extends StatelessWidget {
             title: Text('Benutzer Einstellungen',
                 style: TextStyle(fontWeight: FontWeight.bold)),
             onTap: () {
-            Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => User()),
-                );
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => User()),
+              );
             },
           ),
           ListTile(
@@ -62,27 +72,15 @@ class AppOptions extends StatelessWidget {
               FontAwesomeIcons.signOutAlt,
               size: 17,
             ),
-            title: Text('Ausloggen',
-                style: TextStyle(fontWeight: FontWeight.bold)),
+            title:
+                Text('Ausloggen', style: TextStyle(fontWeight: FontWeight.bold)),
             onTap: () {
               Navigator.of(context).pop();
               controller
                   .loadUrl('https://intern.gymkirchenfeld.ch/account/logout');
             },
           ),
-          ListTile(
-              leading: FaIcon(
-                FontAwesomeIcons.moon,
-                size: 17,
-              ),
-              title: Text('Darkmode',
-                  style: TextStyle(fontWeight: FontWeight.bold)),
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => DarkMode()),
-                );
-              }),
+          
           Divider(
             height: 20,
             thickness: 1,
@@ -92,8 +90,8 @@ class AppOptions extends StatelessWidget {
                 FontAwesomeIcons.info,
                 size: 17,
               ),
-              title: Text('App Info',
-                  style: TextStyle(fontWeight: FontWeight.bold)),
+              title:
+                  Text('App Info', style: TextStyle(fontWeight: FontWeight.bold)),
               onTap: () {
                 Navigator.push(
                   context,

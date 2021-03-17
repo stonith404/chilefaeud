@@ -2,13 +2,51 @@ import 'package:flutter/material.dart';
 import 'package:InternGymkirchenfeld/main.dart';
 import 'package:intl/intl.dart';
 import 'package:webview_flutter/webview_flutter.dart';
+import 'dart:io';
+import 'package:InternGymkirchenfeld/appOptions/settings.dart';
 
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:InternGymkirchenfeld/toDo.dart';
 import 'package:InternGymkirchenfeld/appOptions/user.dart';
+import 'package:flutter/cupertino.dart';
 
 String currentUrl = 'https://intern.gymkirchenfeld.ch/account/setMobileLayout';
+
+class CrossPScaffold extends StatelessWidget {
+  var child;
+  var title;
+  CrossPScaffold({
+    Key key,
+    @required this.child,
+    @required this.title,
+  }) : super(key: key);
+
+
+  @override
+  Widget build(BuildContext context) {
+    if (Platform.isIOS) {
+      return CupertinoPageScaffold(
+          navigationBar:  CupertinoNavigationBar(
+            middle: Text(title),
+          ),
+          child: Padding(padding: EdgeInsets.only(top:50),child: child,));
+    } else {
+      return Scaffold(
+         appBar: AppBar(
+centerTitle: true,
+    
+          title: Text(
+           title,
+            style: TextStyle(fontWeight: FontWeight.w300),
+          ),
+        ),
+      body: child
+
+    );
+    }
+  }
+}
 
 class DefaultDrawer extends StatefulWidget {
   const DefaultDrawer({
@@ -51,7 +89,7 @@ class _DefaultDrawerState extends State<DefaultDrawer> {
           Padding(
             padding: const EdgeInsets.fromLTRB(15, 30, 15, 15),
             child: SafeArea(
-                          child: Column(
+              child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Padding(
@@ -108,7 +146,8 @@ class _DefaultDrawerState extends State<DefaultDrawer> {
                 MaterialPageRoute(builder: (context) => WebtoApp()),
               );
               setState(() {
-                currentUrl = 'https://intern.gymkirchenfeld.ch/account/setMobileLayout';
+                currentUrl =
+                    'https://intern.gymkirchenfeld.ch/account/setMobileLayout';
               });
             },
           ),
