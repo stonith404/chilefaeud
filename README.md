@@ -4,9 +4,9 @@ Made with Flutter, a mix of webview and native app
 
 ## Features
 
--To Do List <br />
--Dark Mode (made with js and Material App) <br />
--whole "intern.gymkirchenfeld.ch" website implemented
+- To Do List <br />
+- Dark Mode (made with js and Material App) <br />
+- whole "intern.gymkirchenfeld.ch" website implemented
 - Firebase Push Notifications
 
 
