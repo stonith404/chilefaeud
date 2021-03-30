@@ -1,16 +1,21 @@
-# gymkirchenfeld
+# chilefäud
 
-A new Flutter project.
+Made with Flutter, a mix of webview and native app
 
-## Getting Started
+## Features
 
-This project is a starting point for a Flutter application.
+- To Do List <br />
+- Dark Mode (made with js and Material App) <br />
+- whole "intern.gymkirchenfeld.ch" website implemented
+- Firebase Push Notifications
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+### Download
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Available on IOS, Android and MacOS (m1 chip only)
+
+- [Download here](https://apps.eliasschneider.com/gymkirchenfeld/) (Access limited without login)
+
+
+
+
