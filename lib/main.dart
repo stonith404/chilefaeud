@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -19,6 +20,7 @@ void main() {
       ),
       darkTheme: ThemeData(
           brightness: Brightness.dark,
+          cupertinoOverrideTheme: CupertinoThemeData(barBackgroundColor: Colors.black, textTheme: CupertinoTextThemeData(primaryColor: Colors.white)),
           appBarTheme: AppBarTheme(
             color: Colors.black87,
           ),
@@ -106,10 +108,13 @@ head.appendChild(style);
     final window = WidgetsBinding.instance.window;
     window.onPlatformBrightnessChanged = () {
       final brightness = window.platformBrightness;
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (context) => WebtoApp()),
-      );
+     Navigator.pushReplacement(
+      context, 
+      PageRouteBuilder(
+        pageBuilder: (context, animation1, animation2) => WebtoApp(),
+        transitionDuration: Duration(seconds: 0),
+    ),
+);
     };
   }
 
@@ -207,7 +212,7 @@ head.appendChild(style);
                     actions: [
                       IconButton(
                         icon:  FaIcon(
-                          FontAwesomeIcons.cog,
+                          FontAwesomeIcons.ellipsisH,
                           size: 17,
                         ),
                         onPressed: () {

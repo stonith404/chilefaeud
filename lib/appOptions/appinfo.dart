@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:InternGymkirchenfeld/shortcuts/appbar.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:package_info/package_info.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:get_version/get_version.dart';
 import 'package:flutter/services.dart';
 import 'package:InternGymkirchenfeld/appOptions/devInfo.dart';
+
 
 
   String _projectVersion = '';
@@ -114,6 +115,18 @@ class _body extends StatelessWidget {
             child: Text(
                 "Bitte beachte, dass dies keine offizielle App von dem Gymnasium Kirchenfeld ist. Sie greift zwar auf die Website intern.gymkirchenfeld zu, aber veröffentlicht wurde die App nicht vom Gymnasium Kirchenfeld."),
           ),
+                    Padding(
+            padding: const EdgeInsets.only(top: 20.0),
+            child: Divider(),
+          ),
+                   Padding(
+            padding: const EdgeInsets.fromLTRB(20, 10, 20, 0),
+            child: FlatButton.icon(onPressed: () => _launchURL(), icon: FaIcon(
+                FontAwesomeIcons.github,
+                
+              ), label: Text("Source Code")),
+          ),
+             
           Spacer(
             flex: 1,
           ),
@@ -127,5 +140,15 @@ class _body extends StatelessWidget {
         ],
       ),
     );
+  }
+}
+
+
+_launchURL() async {
+  const url = 'https://github.com/generalxhd/chilefaeud';
+  if (await canLaunch(url)) {
+    await launch(url);
+  } else {
+    throw 'Could not launch $url';
   }
 }
