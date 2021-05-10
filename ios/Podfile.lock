@@ -43,6 +43,8 @@ PODS:
     - GoogleUtilities/UserDefaults (~> 6.7)
     - Protobuf (>= 3.9.2, ~> 3.9)
   - Flutter (1.0.0)
+  - flutter_appavailability (0.0.1):
+    - Flutter
   - flutter_email_sender (0.0.1):
     - Flutter
   - get_version (0.0.1):
@@ -88,6 +90,7 @@ DEPENDENCIES:
   - firebase_core (from `.symlinks/plugins/firebase_core/ios`)
   - firebase_messaging (from `.symlinks/plugins/firebase_messaging/ios`)
   - Flutter (from `Flutter`)
+  - flutter_appavailability (from `.symlinks/plugins/flutter_appavailability/ios`)
   - flutter_email_sender (from `.symlinks/plugins/flutter_email_sender/ios`)
   - get_version (from `.symlinks/plugins/get_version/ios`)
   - package_info (from `.symlinks/plugins/package_info/ios`)
@@ -119,6 +122,8 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/firebase_messaging/ios"
   Flutter:
     :path: Flutter
+  flutter_appavailability:
+    :path: ".symlinks/plugins/flutter_appavailability/ios"
   flutter_email_sender:
     :path: ".symlinks/plugins/flutter_email_sender/ios"
   get_version:
@@ -143,6 +148,7 @@ SPEC CHECKSUMS:
   FirebaseInstanceID: bd3ffc24367f901a43c063b36c640b345a4a5dd1
   FirebaseMessaging: 5eca4ef173de76253352511aafef774caa1cba2a
   Flutter: 434fef37c0980e73bb6479ef766c45957d4b510c
+  flutter_appavailability: ebf8f85abea44436d1262fcde8a4e64b2534b01a
   flutter_email_sender: f787522d0e82f50e5766c1213dbffff22fdcf009
   get_version: 2bc18c4e26a265571662cab5d38f8b50dc8c1c77
   GoogleDataTransport: f56af7caa4ed338dc8e138a5d7c5973e66440833

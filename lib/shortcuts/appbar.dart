@@ -4,14 +4,16 @@ import 'package:intl/intl.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 import 'dart:io';
 import 'package:InternGymkirchenfeld/appOptions/settings.dart';
-
+import 'package:url_launcher/url_launcher.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:InternGymkirchenfeld/toDo.dart';
 import 'package:InternGymkirchenfeld/appOptions/user.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_appavailability/flutter_appavailability.dart';
 
 String currentUrl = 'https://intern.gymkirchenfeld.ch/account/setMobileLayout';
+bool isGradelyInstalled = false;
 
 class CrossPScaffold extends StatelessWidget {
   var child;
@@ -22,28 +24,27 @@ class CrossPScaffold extends StatelessWidget {
     @required this.title,
   }) : super(key: key);
 
-
   @override
   Widget build(BuildContext context) {
     if (Platform.isIOS) {
       return CupertinoPageScaffold(
-          navigationBar:  CupertinoNavigationBar(
+          navigationBar: CupertinoNavigationBar(
             middle: Text(title),
           ),
-          child: Padding(padding: EdgeInsets.only(top:50),child: child,));
+          child: Padding(
+            padding: EdgeInsets.only(top: 50),
+            child: child,
+          ));
     } else {
       return Scaffold(
-         appBar: AppBar(
-centerTitle: true,
-    
-          title: Text(
-           title,
-            style: TextStyle(fontWeight: FontWeight.w300),
+          appBar: AppBar(
+            centerTitle: true,
+            title: Text(
+              title,
+              style: TextStyle(fontWeight: FontWeight.w300),
+            ),
           ),
-        ),
-      body: child
-
-    );
+          body: child);
     }
   }
 }
@@ -163,6 +164,19 @@ class _DefaultDrawerState extends State<DefaultDrawer> {
                 context,
                 MaterialPageRoute(builder: (context) => TodoList()),
               );
+            },
+          ),
+          ListTile(
+            leading: FaIcon(
+              FontAwesomeIcons.graduationCap,
+              size: 17,
+            ),
+            title:
+                Text("Gradely", style: TextStyle(fontWeight: FontWeight.bold)),
+            onTap: () async {
+              
+              print(isGradelyInstalled);
+              _launchUrl("https://gradelyapp.com/install.html");
             },
           ),
           Divider(),
@@ -465,5 +479,14 @@ class _DefaultDrawerState extends State<DefaultDrawer> {
         ],
       )),
     );
+  }
+}
+
+_launchUrl(String _url) async {
+  String url = _url;
+  if (await canLaunch(url)) {
+    await launch(url);
+  } else {
+    throw 'Da ist leider ein Fehler aufgetreten...';
   }
 }
